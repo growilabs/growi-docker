@@ -1,0 +1,37 @@
+box: node:8
+
+
+release:
+  steps:
+    - script:
+      name: bump version
+      code: |
+        sh ./bin/bump-version.sh
+
+    - script:
+      name: git commit
+      code: |
+        sh ./bin/init-git.sh
+        git commit -am ":+1: version"
+
+    # push HEAD to $WERCKER_GIT_BRANCH
+    - script:
+      name: push to github
+      code: |
+        git push -u origin HEAD:$WERCKER_GIT_BRANCH
+        TARGET_COMMITISH=`git rev-parse HEAD`
+
+    # create github release on HEAD
+    - github-create-release:
+      token: $GITHUB_TOKEN
+      tag: v$RELEASE_VERSION
+      target-commitish: $TARGET_COMMITISH
+
+  after-steps:
+    - install-packages:
+      packages: ruby
+
+    - wantedly/pretty-slack-notify:
+      webhook_url: $SLACK_WEBHOOK_URL
+      notify_on: "passed"
+      passed_message: ":anchor: GROWI v$RELEASE_VERSION has been released!"
