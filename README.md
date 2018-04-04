@@ -6,6 +6,7 @@ growi-docker
     <img src="https://user-images.githubusercontent.com/1638767/38254268-d4476bbe-3793-11e8-964c-8865d690baff.png" width="240px">
   </a>
   x
+  <img src="https://user-images.githubusercontent.com/1638767/38305733-e64903bc-3848-11e8-8800-91e56c048f0e.png" width="240px">
   
 </p>
 
