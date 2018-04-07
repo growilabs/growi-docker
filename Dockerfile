@@ -25,6 +25,7 @@ RUN apk add --no-cache --virtual .build-deps git \
     && apk del .build-deps
 
 COPY docker-entrypoint.sh /
+RUN chmod +x /docker-entrypoint.sh
 
 VOLUME /data
 EXPOSE 3000
