@@ -9,7 +9,7 @@ RUN apk add --no-cache --update tar
 # download GROWI archive from Github
 RUN apk add --no-cache --virtual .dl-deps curl \
     && mkdir -p ${APP_DIR} \
-    && curl -SL https://github.com/weseek/crowi-plus/archive/${APP_VERSION}.tar.gz \
+    && curl -SL https://github.com/weseek/growi/archive/${APP_VERSION}.tar.gz \
         | tar -xz -C ${APP_DIR} --strip-components 1 \
     && apk del .dl-deps
 
