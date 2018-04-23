@@ -10,7 +10,7 @@ growi-docker
 Supported tags and respective Dockerfile links
 ------------------------------------------------
 
-* [`3.0.7`, `3.0`, `3`, `latest` (Dockerfile)](https://github.com/weseek/growi-docker/blob/v3.0.7/Dockerfile)
+* [`3.0.8`, `3.0`, `3`, `latest` (Dockerfile)](https://github.com/weseek/growi-docker/blob/v3.0.8/Dockerfile)
 
 
 What is GROWI?
