@@ -1,7 +1,7 @@
 FROM node:8-alpine
 LABEL maintainer Yuki Takei <yuki@weseek.co.jp>
 
-ENV APP_VERSION v3.0.13
+ENV APP_VERSION v3.1.0-RC
 ENV APP_DIR /opt/growi
 
 # update tar for '--strip-components' option
@@ -17,10 +17,12 @@ WORKDIR ${APP_DIR}
 
 # setup
 RUN apk add --no-cache --virtual .build-deps git \
-    && yarn install --production \
+    && yarn \
     # install official plugins
     && yarn add growi-plugin-lsx growi-plugin-pukiwiki-like-linker \
     && npm run build:prod \
+    # shrink dependencies for production
+    && yarn install --production \
     && yarn cache clean \
     && apk del .build-deps
 
