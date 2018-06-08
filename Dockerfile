@@ -1,7 +1,7 @@
 FROM node:8-alpine
 LABEL maintainer Yuki Takei <yuki@weseek.co.jp>
 
-ENV APP_VERSION v3.1.4
+ENV APP_VERSION v3.1.5
 ENV APP_DIR /opt/growi
 
 # update tar for '--strip-components' option
