@@ -29,7 +29,6 @@ Requirements
 
 ### Optional Dependencies
 
-* Redis (>= 3)
 * ElasticSearch (>= 5.1)
   * Japanese (kuromoji) Analysis plugin
   * ICU Analysis Plugin
@@ -46,12 +45,11 @@ docker run -d \
 
 and go to `http://localhost:3000/` .
 
-If you use Redis and ElasticSearch, type this:
+If you use ElasticSearch, type this:
 
 ```bash
 docker run -d \
     -e MONGO_URI=mongodb://MONGODB_HOST:MONGODB_PORT/growi \
-    -e REDIS_URL=redis://REDIS_HOST:REDIS_PORT/growi \
     -e ELASTICSEARCH_URI=http://ELASTICSEARCH_HOST:ELASTICSEARCH_PORT/growi \
     weseek/growi
 ```
