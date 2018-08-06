@@ -10,7 +10,8 @@ growi-docker
 Supported tags and respective Dockerfile links
 ------------------------------------------------
 
-* [`3.1.14`, `3.1`, `3`, `latest` (Dockerfile)](https://github.com/weseek/growi-docker/blob/v3.1.14/Dockerfile)
+* [`3.2.0`, `3.2`, `3`, `latest` (Dockerfile)](https://github.com/weseek/growi-docker/blob/v3.2.0/Dockerfile)
+* [`3.1.14`, `3.1` (Dockerfile)](https://github.com/weseek/growi-docker/blob/v3.1.14/Dockerfile)
 * [`3.0.13`, `3.0` (Dockerfile)](https://github.com/weseek/growi-docker/blob/v3.0.13/Dockerfile)
 
 
@@ -72,12 +73,15 @@ Environment Variables
     * PORT: Server port. default: `3000`
     * ELASTICSEARCH_URI: URI to connect to Elasticearch.
     * REDIS_URI: URI to connect to Redis (use it as a session store instead of MongoDB).
-    * PLANTUML_URI: URI to connect to [PlantUML](http://plantuml.com/) server.
-    * BLOCKDIAG_URI: URI to connect to [blockdiag](http://http://blockdiag.com/) server.
     * PASSWORD_SEED: A password seed used by password hash generator.
     * SECRET_TOKEN: A secret key for verifying the integrity of signed cookies.
     * SESSION_NAME: The name of the session ID cookie to set in the response by Express. default: `connect.sid`
     * FILE_UPLOAD: `aws` (default), `local`, `none`
+* **Option to integrate with external systems**
+    * HACKMD_URI: URI to connect to [HackMD(CodiMD)](https://hackmd.io/) server.
+        * **This server must load the GROWI agent. [Here's how to prepare it](https://docs.growi.org/management-cookbook/integrate-with-hackmd).**
+    * PLANTUML_URI: URI to connect to [PlantUML](http://plantuml.com/) server.
+    * BLOCKDIAG_URI: URI to connect to [blockdiag](http://http://blockdiag.com/) server.
 * **Option (Overwritable in admin page)**
     * OAUTH_GOOGLE_CLIENT_ID: Google API client id for OAuth login
     * OAUTH_GOOGLE_CLIENT_SECRET: Google API client secret for OAuth login
