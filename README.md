@@ -80,6 +80,7 @@ Environment Variables
 * **Option to integrate with external systems**
     * HACKMD_URI: URI to connect to [HackMD(CodiMD)](https://hackmd.io/) server.
         * **This server must load the GROWI agent. [Here's how to prepare it](https://docs.growi.org/management-cookbook/integrate-with-hackmd).**
+    * HACKMD_URI_FOR_SERVER: URI to connect to [HackMD(CodiMD)](https://hackmd.io/) server from GROWI Express server. If not set, `HACKMD_URI` will be used.
     * PLANTUML_URI: URI to connect to [PlantUML](http://plantuml.com/) server.
     * BLOCKDIAG_URI: URI to connect to [blockdiag](http://http://blockdiag.com/) server.
 * **Option (Overwritable in admin page)**
@@ -87,7 +88,11 @@ Environment Variables
     * OAUTH_GOOGLE_CLIENT_SECRET: Google API client secret for OAuth login
     * OAUTH_GITHUB_CLIENT_ID: GitHub API client id for OAuth login
     * OAUTH_GITHUB_CLIENT_SECRET: GitHub API client secret for OAuth login
-
+    * OAUTH_TWITTER_CONSUMER_KEY: Twitter consumer key(API key) for OAuth login.
+    * OAUTH_TWITTER_CONSUMER_SECRET: Twitter consumer secret(API secret) for OAuth login.
+    * SAML_ENTRY_POINT: IdP entry point
+    * SAML_ISSUER: Issuer string to supply to IdP
+    * SAML_CERT: PEM-encoded X.509 signing certificate string to validate the response from IdP
 
 Other Documentation
 --------------------
