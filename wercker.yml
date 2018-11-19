@@ -32,6 +32,11 @@ release:
 addtag:
   steps:
     - script:
+      name: Exit w/Error if RC
+      code: |
+        bash ./bin/exit-if-rc.sh
+
+    - script:
       name: git commit
       code: |
         sh ./bin/init-git.sh
