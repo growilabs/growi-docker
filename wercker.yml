@@ -8,6 +8,29 @@ release:
       code: |
         sh ./bin/bump-version.sh
 
+    # build docker image
+    - internal/docker-build:
+      image-name: my-new-image
+
+    # push docker image
+    - internal/docker-push:
+      image-name: my-new-image        # specify the image to be pushed - this is the one we created earlier
+      repository: weseek/growi
+      tag: v$RELEASE_VERSION
+      username: $DOCKERHUB_USERNAME
+      password: $DOCKERHUB_PASSWORD
+
+  after-steps:
+    - install-packages:
+      packages: ruby
+
+    - wantedly/pretty-slack-notify:
+      webhook_url: $SLACK_WEBHOOK_URL
+      notify_on: "passed"
+      passed_message: ":anchor: GROWI v$RELEASE_VERSION has been released!"
+
+addtag:
+  steps:
     - script:
       name: git commit
       code: |
@@ -26,12 +49,3 @@ release:
       token: $GITHUB_TOKEN
       tag: v$RELEASE_VERSION
       target-commitish: $TARGET_COMMITISH
-
-  after-steps:
-    - install-packages:
-      packages: ruby
-
-    - wantedly/pretty-slack-notify:
-      webhook_url: $SLACK_WEBHOOK_URL
-      notify_on: "passed"
-      passed_message: ":anchor: GROWI v$RELEASE_VERSION has been released!"
