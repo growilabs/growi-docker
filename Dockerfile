@@ -3,13 +3,14 @@ LABEL maintainer Yuki Takei <yuki@weseek.co.jp>
 
 ENV APP_VERSION v3.2.8
 ENV APP_DIR /opt/growi
+ARG ARCHIVE_NAME=${APP_VERSION}
 
 # update tar for '--strip-components' option
 RUN apk add --no-cache --update tar
 # download GROWI archive from Github
 RUN apk add --no-cache --virtual .dl-deps curl \
     && mkdir -p ${APP_DIR} \
-    && curl -SL https://github.com/weseek/growi/archive/${APP_VERSION}.tar.gz \
+    && curl -SL https://github.com/weseek/growi/archive/${ARCHIVE_NAME}.tar.gz \
         | tar -xz -C ${APP_DIR} --strip-components 1 \
     && apk del .dl-deps
 
