@@ -12,11 +12,16 @@ release:
     - internal/docker-build:
       image-name: my-new-image
 
+    - script:
+      name: get tags to push
+      code: |
+        export TAGS_TO_PUSH=`bash ./bin/get-tags-to-push.sh`
+
     # push docker image
     - internal/docker-push:
       image-name: my-new-image        # specify the image to be pushed - this is the one we created earlier
       repository: weseek/growi
-      tag: v$RELEASE_VERSION
+      tag: $TAGS_TO_PUSH
       username: $DOCKERHUB_USERNAME
       password: $DOCKERHUB_PASSWORD
 
@@ -32,7 +37,7 @@ release:
 addtag:
   steps:
     - script:
-      name: Exit w/Error if RC
+      name: Exit if RC
       code: |
         bash ./bin/exit-if-rc.sh
 
