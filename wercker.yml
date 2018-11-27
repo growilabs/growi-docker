@@ -11,6 +11,7 @@ release:
     # build docker image
     - internal/docker-build:
       image-name: my-new-image
+      build-args: "ARCHIVE_NAME=$GROWI_REPOS_GIT_COMMIT"
 
     - script:
       name: get tags to push
