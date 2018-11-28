@@ -9,11 +9,11 @@ then
   patch=${BASH_REMATCH[3]}
   rc=${BASH_REMATCH[4]}
 
-  # echo '3.2.1-RC.20180101125959' if RC
+  # echo '3.2.1-RC,3.2.1-RC.20180101125959' if RC
   if [ ${#rc} -ne 0 ] ;
   then
     now=`date +"%Y%m%d%I%M%S"`
-    echo ${all}.${now}
+    echo ${all},${all}.${now}
     exit
   fi
 
