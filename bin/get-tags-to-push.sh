@@ -13,7 +13,7 @@ then
   if [ ${#rc} -ne 0 ] ;
   then
     now=`date +"%Y%m%d%I%M%S"`
-    echo ${all},${all}.${now}
+    echo -n "${all}, ${all}.${now}"
     exit
   fi
 
