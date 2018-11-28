@@ -22,7 +22,7 @@ release:
     - internal/docker-push:
       repository: weseek/growi
       image-name: my-new-image        # specify the image to be pushed - this is the one we created earlier
-      tag: 3.2.9-RC,3.2.9
+      tag: $TAGS_TO_PUSH
       username: $DOCKERHUB_USERNAME
       password: $DOCKERHUB_PASSWORD
 
