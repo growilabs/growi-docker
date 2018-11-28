@@ -20,7 +20,6 @@ release:
 
     # push docker image
     - internal/docker-push:
-      registry: https://registry.hub.docker.com
       repository: weseek/growi
       image-name: my-new-image        # specify the image to be pushed - this is the one we created earlier
       tag: $TAGS_TO_PUSH
