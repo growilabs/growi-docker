@@ -16,13 +16,16 @@ release:
     - script:
       name: get tags to push
       code: |
-        export TAGS_TO_PUSH=`bash ./bin/get-tags-to-push.sh`
+        # export TAGS_TO_PUSH=`bash ./bin/get-tags-to-push.sh`
+        export TAGS_TO_PUSH1=`bash ./bin/get-tag-to-push.sh 1`
+        export TAGS_TO_PUSH2=`bash ./bin/get-tag-to-push.sh 2`
+        export TAGS_TO_PUSH3=`bash ./bin/get-tag-to-push.sh 3`
 
     # push docker image
     - internal/docker-push:
       repository: weseek/growi
       image-name: my-new-image        # specify the image to be pushed - this is the one we created earlier
-      tag: $TAGS_TO_PUSH
+      tag: $TAGS_TO_PUSH1 $TAGS_TO_PUSH2 $TAGS_TO_PUSH3
       username: $DOCKERHUB_USERNAME
       password: $DOCKERHUB_PASSWORD
 
