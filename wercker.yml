@@ -41,7 +41,7 @@ release:
     - wantedly/pretty-slack-notify:
       webhook_url: $SLACK_WEBHOOK_URL
       notify_on: "passed"
-      passed_message: ":anchor: GROWI v{$TAGS_TO_PUSH} has been released! -> https://hub.docker.com/r/weseek/growi/"
+      passed_message: ":anchor: GROWI v$TAGS_TO_PUSH1, v$TAGS_TO_PUSH2 and v$TAGS_TO_PUSH3 has been released! -> https://hub.docker.com/r/weseek/growi/"
 
 addtag:
   steps:
