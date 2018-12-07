@@ -1,7 +1,7 @@
 FROM node:8-alpine
 LABEL maintainer Yuki Takei <yuki@weseek.co.jp>
 
-ENV APP_VERSION v3.2.9
+ENV APP_VERSION v3.2.10
 ENV APP_DIR /opt/growi
 ARG ARCHIVE_NAME=${APP_VERSION}
 
