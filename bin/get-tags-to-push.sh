@@ -12,7 +12,7 @@ then
   # echo '3.2.1-RC,3.2.1-RC.20180101125959' if RC
   if [ ${#rc} -ne 0 ] ;
   then
-    now=`date +"%Y%m%d%I%M%S"`
+    now=`date +"%Y%m%d%H%M%S"`
     echo -n "${all}, ${all}.${now}"
     exit
   fi
