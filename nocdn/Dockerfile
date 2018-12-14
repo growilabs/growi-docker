@@ -16,7 +16,8 @@ RUN apk add --no-cache --virtual .dl-deps curl \
 
 WORKDIR ${APP_DIR}
 
-# set env NO_CDN=true
+# replace env.prod.js for NO_CDN
+RUN rm config/env.prod.js
 COPY config/env.prod.js config
 
 # setup
