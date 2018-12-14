@@ -8,9 +8,11 @@ release:
       code: |
         sh ./bin/bump-version.sh
 
-    # build docker image
+    #
+    # --- build and push image ---
+    #
     - internal/docker-build:
-      image-name: my-new-image
+      image-name: my-image
       build-args: "ARCHIVE_NAME=$GROWI_REPOS_GIT_COMMIT"
 
     - script:
@@ -18,10 +20,30 @@ release:
       code: |
         export TAGS_TO_PUSH=`bash ./bin/get-tags-to-push.sh`
 
+    - internal/docker-push:
+      repository: weseek/growi
+      image-name: my-image
+      tag: $TAGS_TO_PUSH
+      username: $DOCKERHUB_USERNAME
+      password: $DOCKERHUB_PASSWORD
+
+    #
+    # --- build and push image (NO_CDN) ---
+    #
+    - internal/docker-build:
+      image-name: my-image-nocdn
+      dockerfile: nocdn/Dockerfile
+      build-args: "ARCHIVE_NAME=$GROWI_REPOS_GIT_COMMIT"
+
+    - script:
+      name: get tags to push
+      code: |
+        export TAGS_TO_PUSH=`bash ./bin/get-tags-to-push.sh -s nocdn`
+
     # push docker image
     - internal/docker-push:
       repository: weseek/growi
-      image-name: my-new-image        # specify the image to be pushed - this is the one we created earlier
+      image-name: my-image-nocdn
       tag: $TAGS_TO_PUSH
       username: $DOCKERHUB_USERNAME
       password: $DOCKERHUB_PASSWORD
