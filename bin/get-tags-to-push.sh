@@ -1,5 +1,16 @@
 #!/bin/bash
 
+while getopts "s:" OPT
+do
+  case $OPT in
+    s)  suffix=-$OPTARG ;;
+    \?)
+      echo "[ERROR] Undefined options."
+      exit -1
+      ;;
+  esac
+done
+
 # https://regex101.com/r/sxGQtU/2
 if [[ $RELEASE_VERSION =~ ^([0-9]+)\.([0-9]+)\.([0-9]+)(-RC[0-9]*)?$ ]] ;
 then
@@ -18,5 +29,5 @@ then
   fi
 
   # echo '3.2.1, 3.2, 3'
-  echo ${major}.${minor}.${patch}, ${major}.${minor}, ${major}
+  echo ${major}.${minor}.${patch}${suffix}, ${major}.${minor}${suffix}, ${major}${suffix}
 fi
