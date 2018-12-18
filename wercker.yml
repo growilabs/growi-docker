@@ -32,7 +32,7 @@ release:
     #
     - internal/docker-build:
       image-name: my-image-nocdn
-      dockerfile: nocdn/Dockerfile
+      context: nocdn
       build-args: "ARCHIVE_NAME=$GROWI_REPOS_GIT_COMMIT"
 
     - script:
