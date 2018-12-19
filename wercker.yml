@@ -8,9 +8,6 @@ release:
       code: |
         sh ./bin/bump-version.sh
 
-    #
-    # --- build and push image ---
-    #
     - internal/docker-build:
       image-name: my-image
       build-args: "ARCHIVE_NAME=$GROWI_REPOS_GIT_COMMIT"
@@ -23,27 +20,6 @@ release:
     - internal/docker-push:
       repository: weseek/growi
       image-name: my-image
-      tag: $TAGS_TO_PUSH
-      username: $DOCKERHUB_USERNAME
-      password: $DOCKERHUB_PASSWORD
-
-    #
-    # --- build and push image (NO_CDN) ---
-    #
-    - internal/docker-build:
-      image-name: my-image-nocdn
-      context: nocdn
-      build-args: "ARCHIVE_NAME=$GROWI_REPOS_GIT_COMMIT"
-
-    - script:
-      name: get tags to push
-      code: |
-        export TAGS_TO_PUSH=`bash ./bin/get-tags-to-push.sh -s nocdn`
-
-    # push docker image
-    - internal/docker-push:
-      repository: weseek/growi
-      image-name: my-image-nocdn
       tag: $TAGS_TO_PUSH
       username: $DOCKERHUB_USERNAME
       password: $DOCKERHUB_PASSWORD
@@ -61,6 +37,46 @@ release:
       webhook_url: $SLACK_WEBHOOK_URL
       notify_on: "passed"
       passed_message: ":anchor: GROWI v($TAGS_TO_PUSH) has been released! -> https://hub.docker.com/r/weseek/growi/"
+
+
+release-nocdn:
+  steps:
+    - script:
+      name: bump version
+      code: |
+        sh ./bin/bump-version.sh
+
+    - internal/docker-build:
+      image-name: my-image
+      context: nocdn
+      build-args: "ARCHIVE_NAME=$GROWI_REPOS_GIT_COMMIT"
+
+    - script:
+      name: get tags to push
+      code: |
+        export TAGS_TO_PUSH=`bash ./bin/get-tags-to-push.sh -s nocdn`
+
+    - internal/docker-push:
+      repository: weseek/growi
+      image-name: my-image
+      tag: $TAGS_TO_PUSH
+      username: $DOCKERHUB_USERNAME
+      password: $DOCKERHUB_PASSWORD
+
+  after-steps:
+    - install-packages:
+      packages: ruby
+
+    - wantedly/pretty-slack-notify:
+      webhook_url: $SLACK_WEBHOOK_URL
+      notify_on: "failed"
+      channel: ci
+
+    - wantedly/pretty-slack-notify:
+      webhook_url: $SLACK_WEBHOOK_URL
+      notify_on: "passed"
+      passed_message: ":anchor: GROWI v($TAGS_TO_PUSH) has been released! -> https://hub.docker.com/r/weseek/growi/"
+
 
 addtag:
   steps:
