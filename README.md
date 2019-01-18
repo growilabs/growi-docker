@@ -73,6 +73,7 @@ Environment Variables
 * **Option**
     * NODE_ENV: `production` OR `development`.
     * PORT: Server port. default: `3000`
+    * APP_SITE_URL: Site URL. e.g. `https://example.com`, `https://example.com:8080`
     * ELASTICSEARCH_URI: URI to connect to Elasticearch.
     * REDIS_URI: URI to connect to Redis (use it as a session store instead of MongoDB).
     * PASSWORD_SEED: A password seed used by password hash generator.
