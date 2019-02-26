@@ -1,4 +1,4 @@
-box: node:8
+box: node:10
 
 
 release:
