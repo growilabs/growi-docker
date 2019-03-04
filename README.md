@@ -30,11 +30,11 @@ see: [weseek/growi](https://github.com/weseek/growi)
 Requirements
 -------------
 
-* MongoDB (>= 3.2)
+* MongoDB (>= 3.6)
 
 ### Optional Dependencies
 
-* ElasticSearch (>= 5.1)
+* ElasticSearch (>= 6.6)
   * Japanese (kuromoji) Analysis plugin
   * ICU Analysis Plugin
 
