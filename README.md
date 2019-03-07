@@ -10,8 +10,8 @@ growi-docker
 Supported tags and respective Dockerfile links
 ------------------------------------------------
 
-* [`3.4.1`, `3.4`, `3`, `latest` (Dockerfile)](https://github.com/weseek/growi-docker/blob/v3.4.1/Dockerfile)
-* [`3.4.1-nocdn`, `3.4-nocdn`, `3-nocdn` (Dockerfile)](https://github.com/weseek/growi-docker/blob/v3.4.1/nocdn/Dockerfile)
+* [`3.4.2`, `3.4`, `3`, `latest` (Dockerfile)](https://github.com/weseek/growi-docker/blob/v3.4.2/Dockerfile)
+* [`3.4.2-nocdn`, `3.4-nocdn`, `3-nocdn` (Dockerfile)](https://github.com/weseek/growi-docker/blob/v3.4.2/nocdn/Dockerfile)
 * [`3.3.10`, `3.3` (Dockerfile)](https://github.com/weseek/growi-docker/blob/v3.3.10/Dockerfile)
 * [`3.3.10-nocdn`, `3.3-nocdn` (Dockerfile)](https://github.com/weseek/growi-docker/blob/v3.3.10/nocdn/Dockerfile)
 * [`3.2.10`, `3.2` (Dockerfile)](https://github.com/weseek/growi-docker/blob/v3.2.10/Dockerfile)
