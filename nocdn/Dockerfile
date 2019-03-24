@@ -1,4 +1,4 @@
-FROM node:8-alpine
+FROM node:10-alpine
 LABEL maintainer Yuki Takei <yuki@weseek.co.jp>
 
 ENV APP_VERSION v3.4.2
