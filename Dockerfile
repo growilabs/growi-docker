@@ -20,7 +20,7 @@ WORKDIR ${APP_DIR}
 RUN apk add --no-cache --virtual .build-deps git \
     && yarn \
     # install official plugins
-    && yarn add growi-plugin-lsx growi-plugin-pukiwiki-like-linker \
+    && yarn add growi-plugin-lsx growi-plugin-pukiwiki-like-linker growi-plugin-attachment-refs \
     && npm run build:prod \
     # shrink dependencies for production
     && yarn install --production \
