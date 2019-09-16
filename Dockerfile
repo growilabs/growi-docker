@@ -18,6 +18,7 @@ WORKDIR ${APP_DIR}
 
 # setup
 RUN apk add --no-cache --virtual .build-deps git \
+    && yarn config set network-timeout 300000 \
     && yarn \
     # install official plugins
     && yarn add growi-plugin-lsx growi-plugin-pukiwiki-like-linker growi-plugin-attachment-refs \
