@@ -23,6 +23,16 @@ GROWI is a team collaboration software and it forked from [crowi](https://github
 
 see: [weseek/growi](https://github.com/weseek/growi)
 
+What is growi-docker?
+-------------------
+
+The GROWI official docker image for production use which concludes several official plugins.
+
+- [growi-plugin-lsx](https://www.npmjs.com/package/growi-plugin-lsx)
+- [growi-plugin-pukiwiki-like-linker](https://www.npmjs.com/package/growi-plugin-pukiwiki-like-linker)
+- [growi-plugin-attachment-refs](https://www.npmjs.com/package/growi-plugin-attachment-refs)
+
+
 
 Requirements
 -------------
