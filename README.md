@@ -1,4 +1,4 @@
-# DEPRECATED
+# :warning: DEPRECATED
 # The files to generate the official GROWI docker images are now hosted in [here](https://github.com/weseek/growi/tree/master/docker).
 
 
